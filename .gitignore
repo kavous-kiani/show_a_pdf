@@ -1,0 +1,18 @@
+ Button b = (Button) findViewById(R.id.button1);
+        b.setOnClickListener(new OnClickListener() {
+ 
+            @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+ 
+                File pdfFile = new File(Environment.getExternalStorageDirectory(),"Untitled.pdf");//File path
+                if (pdfFile.exists()) //بررسی اینکه فایل پی ادف وجود داره یا نه
+                {
+                Uri path = Uri.fromFile(pdfFile);
+                Intent objIntent = new Intent(Intent.ACTION_VIEW);
+                objIntent.setDataAndType(path, "application/pdf");
+                objIntent.setFlags(Intent. FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(objIntent);//Staring the pdf viewer
+                }
+ 
+            }
